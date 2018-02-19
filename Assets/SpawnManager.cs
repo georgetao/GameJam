@@ -24,6 +24,8 @@ public class SpawnManager : MonoBehaviour {
 
         Instantiate(blocks[i], new Vector3(j, 4f, 0f), Quaternion.identity);
         Instantiate(blocks[i1], new Vector3(j1, 4f, 0f), Quaternion.identity);
+        GameGrid.grid[(int)j, 4] = blocks[i].transform;
+        GameGrid.grid[(int)j1, 4] = blocks[i1].transform;
         
     }
 	// Use this for initialization
