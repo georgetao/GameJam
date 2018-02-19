@@ -6,16 +6,20 @@ public class Group : MonoBehaviour {
     private List<Transform> blocks = new List<Transform>(); // list of blocks in this group
     private int lumo = 0; // index of the top of the group. LUMO = Lowest Unoccupied Molecular Orbital
     private Grid grid; // reference to grid object to check block positions
-    private int xpos; // between 0 and 4
+    public int xpos; // between 0 and 4
 
 	// Use this for initialization
 	void Start () {
-
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        foreach (Transform child in transform)
+        {
+            blocks.Add(transform);
+            lumo++;
+        }
 	}
 
     void updateBlocks()

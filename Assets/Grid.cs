@@ -9,6 +9,16 @@ public class Grid : MonoBehaviour
     public static Transform[,] grid = new Transform[w, h];
     public static Dictionary<Group, int> groups;
 
+    public Group Group0;
+    public Group Group1;
+    public Group Group2;
+    public Group Group3;
+
+    public GameObject G0;
+    public GameObject G1;
+    public GameObject G2;
+    public GameObject G3;
+
     public float timeToFall = 1f;
     // Set same as timeToFall
     public float timeReset = 1f;
@@ -17,6 +27,7 @@ public class Grid : MonoBehaviour
     void Start()
     {
         groups = new Dictionary<Group, int>();
+
     }
 
     // Update is called once per frame
@@ -25,6 +36,7 @@ public class Grid : MonoBehaviour
         timeToFall -= Time.deltaTime;
         if(timeToFall < 0)
         {
+            Debug.Log(grid[0, 0]);
             fall();
             timeToFall = timeReset;
         }
@@ -39,7 +51,6 @@ public class Grid : MonoBehaviour
                 if (grid[x, y] != null && isFree(grid[x, y]))
                 {
                     // Move one towards bottom
-                    Debug.Log(y);
                     grid[x, y - 1] = grid[x, y];
                     grid[x, y] = null;
 
@@ -52,7 +63,37 @@ public class Grid : MonoBehaviour
         {
             Vector2 v = child.position;
             grid[(int)v.x, (int)v.y] = child;
+            if (v.y == 0 || grid[(int)v.x, (int)v.y - 1] != null)
+            {
+                // Transfering the blocks to groups
+                // Essentially everytime a block should go to a group, I delete it from the Grid,
+                // reinstatiate it into one of the Group GameObjects, and replace it on the Grid
+                // with a Group.transform.
+                if (v.x == 0)
+                {
+                    Instantiate(child, new Vector3(0f, v.y, 0f), Quaternion.identity, G0.transform);
+                    Destroy(child.gameObject);
+                    groups[Group0] = 1;
+                    grid[0, (int)v.y] = Group0.transform;
+                } else if (v.x == 1) {
+                    Instantiate(child, new Vector3(1f, v.y, 0f), Quaternion.identity, G1.transform);
+                    Destroy(child.gameObject);
+                    groups[Group1] = 1;
+                    grid[1, (int)v.y] = Group0.transform;
+                } else if (v.x == 2) {
+                    Instantiate(child, new Vector3(2f, v.y, 0f), Quaternion.identity, G2.transform);
+                    Destroy(child.gameObject);
+                    groups[Group2] = 1;
+                    grid[2, (int)v.y] = Group0.transform;
+                } else if (v.x == 3) {
+                    Instantiate(child, new Vector3(3f, v.y, 0f), Quaternion.identity, G3.transform);
+                    Destroy(child.gameObject);
+                    groups[Group3] = 1;
+                    grid[3, (int)v.y] = Group0.transform;
+                } 
+            }
         }
+        Debug.Log(grid[0, 0]);
     }
 
     bool isFree(Transform transform)
