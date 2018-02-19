@@ -13,19 +13,19 @@ public class SpawnManager : MonoBehaviour {
         int i1 = Random.Range(0, blocks.Length);
 
         // Position of block spawn
-        float j = Random.Range(-2, 2);
-        float j1 = Random.Range(-2, 2);
+        float j = Random.Range(0, 4);
+        float j1 = Random.Range(0, 4);
 
         // Makes sure the two blocks aren't in the same column
         while (j1 == j)
         {
-            j1 = Random.Range(-2, 2);
+            j1 = Random.Range(0, 4);
         }
 
-        Instantiate(blocks[i], new Vector3(j, 4f, 0f), Quaternion.identity);
-        Instantiate(blocks[i1], new Vector3(j1, 4f, 0f), Quaternion.identity);
-        GameGrid.grid[(int)j, 4] = blocks[i].transform;
-        GameGrid.grid[(int)j1, 4] = blocks[i1].transform;
+        Instantiate(blocks[i], new Vector3(j, 8f, 0f), Quaternion.identity);
+        Instantiate(blocks[i1], new Vector3(j1, 8f, 0f), Quaternion.identity);
+        GameGrid.grid[(int)j, 8] = blocks[i].transform;
+        GameGrid.grid[(int)j1, 8] = blocks[i1].transform;
         
     }
 	// Use this for initialization

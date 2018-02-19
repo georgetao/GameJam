@@ -282,7 +282,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Grid.cs" />
+    <Compile Include="Assets\GameGrid.cs" />
     <Compile Include="Assets\Group.cs" />
     <Compile Include="Assets\SpawnManager.cs" />
   </ItemGroup>
