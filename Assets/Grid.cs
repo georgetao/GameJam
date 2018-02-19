@@ -8,8 +8,11 @@ public class Grid : MonoBehaviour
     public static int h = 12;
     public static Transform[,] grid = new Transform[w, h];
     public static Dictionary<Group, int> groups;
-    private int timeToFall = 0;
-    public int deltaTime=1;
+
+    public float timeToFall = 1f;
+    // Set same as timeToFall
+    public float timeReset = 1f;
+
     // Use this for initialization
     void Start()
     {
@@ -19,11 +22,11 @@ public class Grid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Time.time > timeToFall)
+        timeToFall -= Time.deltaTime;
+        if(timeToFall < 0)
         {
             fall();
-            timeToFall += deltaTime;
+            timeToFall = timeReset;
         }
 
     }
@@ -36,9 +39,9 @@ public class Grid : MonoBehaviour
             {
                 if (grid[x, y] != null && isFree(grid[x, y]))
                 {
-                    Debug.Log(grid[x, y]);
+                    //Debug.Log(grid[x, y]);
                     // Move one towards bottom
-                    Debug.Log(x);
+                    //Debug.Log(x);
                     grid[x, y - 1] = grid[x, y];
                     grid[x, y] = null;
 
