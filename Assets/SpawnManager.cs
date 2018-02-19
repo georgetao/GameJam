@@ -34,7 +34,6 @@ public class SpawnManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        Debug.Log("STARTSPAWN");
         spawnNext();
 	}
 	
@@ -43,7 +42,6 @@ public class SpawnManager : MonoBehaviour {
         timeToSpawn -= Time.deltaTime;
         if (timeToSpawn < 0)
         {
-            Debug.Log("SPAWN");
             timeToSpawn = timeReset;
             spawnNext();
         }

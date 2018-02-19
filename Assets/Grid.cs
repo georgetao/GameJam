@@ -28,7 +28,6 @@ public class Grid : MonoBehaviour
             fall();
             timeToFall = timeReset;
         }
-
     }
 
     void fall()
@@ -39,16 +38,14 @@ public class Grid : MonoBehaviour
             {
                 if (grid[x, y] != null && isFree(grid[x, y]))
                 {
-                    //Debug.Log(grid[x, y]);
                     // Move one towards bottom
-                    //Debug.Log(x);
+                    Debug.Log(y);
                     grid[x, y - 1] = grid[x, y];
                     grid[x, y] = null;
 
                     // Update Block position
                     grid[x, y - 1].position += new Vector3(0f, -1, 0);
-                }
-                
+                } 
             }
         }
         foreach (Transform child in transform)
