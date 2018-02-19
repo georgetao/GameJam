@@ -298,7 +298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696346447
 GameObject:
@@ -339,35 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1167082297
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1167082298}
-  m_Layer: 0
-  m_Name: BlockMaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1167082298
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1167082297}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9231975, y: 1.1232834, z: 0.036781922}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341030152
 GameObject:
@@ -439,7 +411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1644109856
 GameObject:
@@ -469,7 +441,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocks:
-  - {fileID: 1747638832892928, guid: 3270e3f207c916042a101592dfa129ba, type: 2}
+  - {fileID: 1032364044932130, guid: e6472bbd100515842987fb46b01c6be1, type: 2}
+  - {fileID: 1032364044932130, guid: bd029aac230a82c4aba89e5b6ab8be89, type: 2}
+  - {fileID: 1032364044932130, guid: 441f497523bb3374f8e0955e1479e0de, type: 2}
+  - {fileID: 1032364044932130, guid: 35c08382470b21945ae7f22be9e8951d, type: 2}
+  - {fileID: 1032364044932130, guid: 61f5c2765617d5942be3d6815811f68b, type: 2}
   GM: {fileID: 1768774418}
   timeToSpawn: 6
   timeReset: 6
@@ -521,8 +497,8 @@ MonoBehaviour:
   G1: {fileID: 696346447}
   G2: {fileID: 676242867}
   G3: {fileID: 2069206497}
-  timeToFall: 0.4
-  timeReset: 0.4
+  timeToFall: 1
+  timeReset: 1
 --- !u!4 &1768774421
 Transform:
   m_ObjectHideFlags: 0
@@ -648,7 +624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069686030
 GameObject:
