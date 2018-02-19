@@ -282,6 +282,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Grid.cs" />
+    <Compile Include="Assets\Group.cs" />
     <Compile Include="Assets\SpawnManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
