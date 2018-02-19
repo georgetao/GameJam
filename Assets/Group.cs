@@ -19,7 +19,7 @@ public class Group : MonoBehaviour {
 
     void updateBlocks()
     {
-        Transform transform = GameGrid.grid[xpos, lumo];
+        Transform transform = Grid.grid[xpos, lumo];
         if(transform != null)
         {
             if(transform.gameObject.tag == blocks[lumo].gameObject.tag)
@@ -27,8 +27,8 @@ public class Group : MonoBehaviour {
                 Destroy(transform.gameObject);
                 Destroy(blocks[lumo].gameObject);
                 blocks.RemoveAt(lumo);
-                GameGrid.grid[xpos, lumo] = null;
-                GameGrid.grid[xpos, lumo + 1] = null;
+                Grid.grid[xpos, lumo] = null;
+                Grid.grid[xpos, lumo + 1] = null;
                 lumo-=1;
             }
             else

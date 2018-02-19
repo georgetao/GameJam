@@ -5,6 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour {
 
     public GameObject[] blocks;
+    public GameObject GM;
+
+    private float timeToSpawn = 0f;
+    private float deltaTime = 2f;
 
     public void spawnNext()
     {
@@ -22,10 +26,8 @@ public class SpawnManager : MonoBehaviour {
             j1 = Random.Range(0, 4);
         }
 
-        Instantiate(blocks[i], new Vector3(j, 8f, 0f), Quaternion.identity);
-        Instantiate(blocks[i1], new Vector3(j1, 8f, 0f), Quaternion.identity);
-        GameGrid.grid[(int)j, 8] = blocks[i].transform;
-        GameGrid.grid[(int)j1, 8] = blocks[i1].transform;
+        Instantiate(blocks[i], new Vector3(j, 8f, 0f), Quaternion.identity, GM.transform);
+        Instantiate(blocks[i1], new Vector3(j1, 8f, 0f), Quaternion.identity, GM.transform);
         
     }
 	// Use this for initialization
@@ -35,6 +37,10 @@ public class SpawnManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(Time.time > timeToSpawn)
+        {
+            spawnNext();
+            timeToSpawn += deltaTime;
+        }
 	}
 }
