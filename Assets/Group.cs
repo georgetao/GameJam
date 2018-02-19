@@ -15,25 +15,31 @@ public class Group : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        foreach (Transform child in transform)
+        if (Grid.grid[xpos, lumo] != null)
         {
-            blocks.Add(transform);
-            lumo++;
+            updateBlocks();
         }
 	}
 
     void updateBlocks()
     {
-        Transform transform = Grid.grid[xpos, lumo];
-        if(transform != null)
+        if (lumo == 0)
         {
-            if(transform.gameObject.tag == blocks[lumo].gameObject.tag)
+            blocks.Add(transform);
+            lumo++;
+        }
+        else 
+        {
+            int numChildren = transform.childCount;
+            if (transform.GetChild(numChildren - 1).gameObject.tag == 
+                transform.GetChild(numChildren - 2).gameObject.tag)
             {
-                Destroy(transform.gameObject);
-                Destroy(blocks[lumo].gameObject);
-                blocks.RemoveAt(lumo);
+                // Destroys the two most recent children (which will be the top two blocks)
+                Destroy(transform.GetChild(numChildren - 1).gameObject);
+                Destroy(transform.GetChild(numChildren - 2).gameObject);
+                blocks.RemoveAt(lumo - 1);
                 Grid.grid[xpos, lumo] = null;
-                Grid.grid[xpos, lumo + 1] = null;
+                Grid.grid[xpos, lumo - 1] = null;
                 lumo-=1;
             }
             else

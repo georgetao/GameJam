@@ -36,7 +36,6 @@ public class Grid : MonoBehaviour
         timeToFall -= Time.deltaTime;
         if(timeToFall < 0)
         {
-            Debug.Log(grid[0, 0]);
             fall();
             timeToFall = timeReset;
         }
@@ -79,21 +78,20 @@ public class Grid : MonoBehaviour
                     Instantiate(child, new Vector3(1f, v.y, 0f), Quaternion.identity, G1.transform);
                     Destroy(child.gameObject);
                     groups[Group1] = 1;
-                    grid[1, (int)v.y] = Group0.transform;
+                    grid[1, (int)v.y] = Group1.transform;
                 } else if (v.x == 2) {
                     Instantiate(child, new Vector3(2f, v.y, 0f), Quaternion.identity, G2.transform);
                     Destroy(child.gameObject);
                     groups[Group2] = 1;
-                    grid[2, (int)v.y] = Group0.transform;
+                    grid[2, (int)v.y] = Group2.transform;
                 } else if (v.x == 3) {
                     Instantiate(child, new Vector3(3f, v.y, 0f), Quaternion.identity, G3.transform);
                     Destroy(child.gameObject);
                     groups[Group3] = 1;
-                    grid[3, (int)v.y] = Group0.transform;
+                    grid[3, (int)v.y] = Group3.transform;
                 } 
             }
         }
-        Debug.Log(grid[0, 0]);
     }
 
     bool isFree(Transform transform)
