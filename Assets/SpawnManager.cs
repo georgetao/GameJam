@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour {
     public GameObject[] blocks;
     public GameObject GM;
 
-    public float timeToSpawn = 6f;
+    public float timeToSpawn = 5f;
     // Set this the same as timeToSpawn
-    public float timeReset = 6f; 
+    public float timeReset = 5f; 
 
     public void spawnNext()
     {
@@ -44,6 +44,10 @@ public class SpawnManager : MonoBehaviour {
         {
             timeToSpawn = timeReset;
             spawnNext();
+            if (timeReset > 2)
+            {
+                timeReset -= 0.04f;
+            }
         }
 	}
 }

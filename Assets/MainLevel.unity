@@ -446,7 +446,7 @@ Transform:
   m_LocalScale: {x: 0.22, y: 0.06, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1564306807
 MonoBehaviour:
@@ -530,14 +530,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocks:
-  - {fileID: 1032364044932130, guid: e6472bbd100515842987fb46b01c6be1, type: 2}
-  - {fileID: 1032364044932130, guid: bd029aac230a82c4aba89e5b6ab8be89, type: 2}
+  - {fileID: 0}
+  - {fileID: 1032364044932130, guid: db141673dfd182244955bee29a98be22, type: 2}
   - {fileID: 1032364044932130, guid: 441f497523bb3374f8e0955e1479e0de, type: 2}
   - {fileID: 1032364044932130, guid: 35c08382470b21945ae7f22be9e8951d, type: 2}
   - {fileID: 1032364044932130, guid: 61f5c2765617d5942be3d6815811f68b, type: 2}
   GM: {fileID: 1768774418}
-  timeToSpawn: 6
-  timeReset: 6
+  timeToSpawn: 5
+  timeReset: 5
 --- !u!4 &1644109858
 Transform:
   m_ObjectHideFlags: 0
