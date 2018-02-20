@@ -7,7 +7,7 @@ public class Grid : MonoBehaviour
     public static int w = 4;
     public static int h = 12;
     public static Transform[,] grid = new Transform[w, h];
-    public static Dictionary<Group, int> groups;
+    public static Group[] groups;
 
     public Group Group0;
     public Group Group1;
@@ -26,7 +26,8 @@ public class Grid : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        groups = new Dictionary<Group, int>();
+        //Initialize groups
+        groups = new Group[4] { G0.GetComponent<Group>(), G1.GetComponent<Group>(), G2.GetComponent<Group>(), G3.GetComponent<Group>() };
 
     }
 
@@ -68,35 +69,23 @@ public class Grid : MonoBehaviour
                 // Essentially everytime a block should go to a group, I delete it from the Grid,
                 // reinstatiate it into one of the Group GameObjects, and replace it on the Grid
                 // with a Group.transform.
-                if (v.x == 0)
+
+                foreach(Group group in groups)
                 {
-                    Instantiate(child, new Vector3(0f, v.y, 0f), Quaternion.identity, G0.transform);
-                    Destroy(child.gameObject);
-                    groups[Group0] = 1;
-                    grid[0, (int)v.y] = Group0.transform;
-                } else if (v.x == 1) {
-                    Instantiate(child, new Vector3(1f, v.y, 0f), Quaternion.identity, G1.transform);
-                    Destroy(child.gameObject);
-                    groups[Group1] = 1;
-                    grid[1, (int)v.y] = Group1.transform;
-                } else if (v.x == 2) {
-                    Instantiate(child, new Vector3(2f, v.y, 0f), Quaternion.identity, G2.transform);
-                    Destroy(child.gameObject);
-                    groups[Group2] = 1;
-                    grid[2, (int)v.y] = Group2.transform;
-                } else if (v.x == 3) {
-                    Instantiate(child, new Vector3(3f, v.y, 0f), Quaternion.identity, G3.transform);
-                    Destroy(child.gameObject);
-                    groups[Group3] = 1;
-                    grid[3, (int)v.y] = Group3.transform;
-                } 
+                    if((int)group.xpos == (int)v.x)
+                    {
+                        Instantiate(child, new Vector3(group.xpos, v.y, 0), Quaternion.identity, group.transform);
+                        Destroy(child.gameObject);
+                        grid[(int)v.x, (int)v.y] = group.transform;
+                    }
+                }
             }
         }
     }
 
     bool isFree(Transform transform)
     {
-        foreach (Group group in groups.Keys)
+        foreach (Group group in groups)
         {
             if (group.containsTransform(transform))
             {
