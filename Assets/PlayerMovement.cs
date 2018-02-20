@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("a"))
         {
-            transform.position = new Vector3(xPos-1, yPos, 0);
+            transform.position = new Vector3(Mathf.Clamp(xPos-1,1f,3f), yPos, 0);
             xPos = transform.position.x;
         }
         if (Input.GetKeyDown("d"))
         {
-            transform.position = new Vector3(xPos + 1, yPos, 0);
+            transform.position = new Vector3(Mathf.Clamp(xPos + 1, 1f, 3f), yPos, 0);
             xPos = transform.position.x;
         }
         if (Input.GetKeyDown("space"))
