@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("a"))
+        if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position = new Vector3(Mathf.Clamp(xPos-1,1f,3f), yPos, 0);
             xPos = transform.position.x;
         }
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position = new Vector3(Mathf.Clamp(xPos + 1, 1f, 3f), yPos, 0);
             xPos = transform.position.x;

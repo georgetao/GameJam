@@ -41,7 +41,7 @@ public class Grid : MonoBehaviour
             timeToFall = timeReset;
             if (timeReset > 0.2f)
             {
-                timeReset -= 0.01f;
+                timeReset -= 0.001f;
             }
         }
     }

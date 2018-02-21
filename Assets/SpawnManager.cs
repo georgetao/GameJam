@@ -44,9 +44,9 @@ public class SpawnManager : MonoBehaviour {
         {
             timeToSpawn = timeReset;
             spawnNext();
-            if (timeReset > 2)
+            if (timeReset > 3)
             {
-                timeReset -= 0.01f;
+                timeReset -= 0.1f;
             }
         }
 	}
