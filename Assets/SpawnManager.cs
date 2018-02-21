@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour {
             spawnNext();
             if (timeReset > 2)
             {
-                timeReset -= 0.04f;
+                timeReset -= 0.01f;
             }
         }
 	}

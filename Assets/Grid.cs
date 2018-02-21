@@ -52,7 +52,7 @@ public class Grid : MonoBehaviour
         {
             Vector2 v = child.position;
             grid[(int)v.x, (int)v.y] = child;
-            if (v.y == 0 || grid[(int)v.x, (int)v.y - 1] != null) // Reached lowest point
+            if (v.y == 0 || !isFree((int)v.x, (int)v.y - 1)) // Reached lowest point
             {
                 // Transfering the blocks to groups
                 // Essentially everytime a block should go to a group, I delete it from the Grid,
@@ -63,13 +63,12 @@ public class Grid : MonoBehaviour
                 {
                     if((int)group.xpos == (int)v.x)
                     {
-                        Instantiate(child, new Vector3(group.xpos, v.y, 0), Quaternion.identity, group.transform);
+                        Transform newobj = Instantiate(child, new Vector3(group.xpos, v.y, 0), Quaternion.identity, group.transform);
                         Destroy(child.gameObject);
-                        grid[(int)v.x, (int)v.y] = group.transform;
                     }
                 }
             }
-            else // Still free falling
+            else if(isFree((int)v.x, (int)v.y - 1)) // Still free falling
             {
                 grid[(int)v.x, (int)v.y - 1] = grid[(int)v.x, (int)v.y];
                 grid[(int)v.x, (int)v.y] = null;
@@ -80,13 +79,16 @@ public class Grid : MonoBehaviour
         
     }
 
-    bool isFree(Transform transform)
+    bool isFree(int x, int y)
     {
         foreach (Group group in groups)
         {
-            if (group.containsTransform(transform))
+            foreach (Transform child in group.transform)
             {
-                return false;
+                if((int)child.position.x == x && (int)child.position.y == y)
+                {
+                    return false;
+                }
             }
         }
         return true;

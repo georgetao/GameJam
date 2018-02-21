@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float yPos = -0.31f;
     private float xPos = 2;
+    
 	// Use this for initialization
 	void Start () {
         transform.position = new Vector3(xPos, yPos, 0);
@@ -41,7 +42,6 @@ public class PlayerMovement : MonoBehaviour {
                     rightGroup = group.transform;
                 }
             }
-            
             rightGroup.position += new Vector3(-1, 0, 0);
             leftGroup.position += new Vector3(1, 0, 0);
 
